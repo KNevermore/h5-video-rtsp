@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件上传</title>
+    <link rel="stylesheet" href="./js/layui/css/layui.css">
+    <script>document.write('<link rel="stylesheet" href="./css/uploader.css?v=' + Math.random().toString().replace("0.", "") + '"><\/link>')</script>
+
+    <script src="./js/thrift.js"></script>
+    <script src="./js/SiMedia_types.js"></script>
+    <script src="./js/SiMedia.js"></script>
+
+    <script src="./js/PSTransfer_types.js"></script>
+    <script src="./js/PSTransfer.js"></script>
+
+    <script src="./js/LiProxy_types.js"></script>
+    <script src="./js/LiProxy.js"></script>
+    <script src="./js/StreamController.js"></script>
+    <script src="./js/PTZController.js"></script>
+    <script src="./js/simedia.bundle.js"></script>
+</head>
+
+<body>
+    <div id="upload_page_view" class="content">
+        <video id="video" autoplay controls src=""></video>
+        <div class="left-con">
+            <div class="header">
+                <div class="upload-contianer">
+                    <!-- <div class="nav2file" id="nav2file">进入文件管理</div> -->
+                    <div data-bind="text:file_cnt"></div>
+                </div>
+                <div id="add_files_button"></div>
+                <div id="fileList" class="uploader-list"></div>
+                <div class="btn-upload" id="btnClick">开始上传</div>
+                <div class="del-upfiles" data-bind="click:clear_upload_list">清空</div>
+            </div>
+            <!-- <div class="split-line layui-clear"></div> -->
+            <span class="upload-tips">视频为不常见视频，请利用厂家的工具，转码为常见视频。</span>
+            <div class="file-tree scrollbar">
+
+                <!-- ko foreach: fileuploadlist -->
+                <div class="attachment" data-bind="attr:{ title:file_name,id:'file'+file_id}">
+                    <a class="file-picfile" href="javascript:void(0)" target="_blank"
+                        data-bind="attr:{ title:file_name,url:'download/'+file_id}">
+                        <img data-bind="attr:{alt:file_name, title:file_name,src:fileImg}">
+                    </a>
+                    <small class="file-type">
+                        <span class="text-uppercase" data-bind="text:file_type">txt</span>
+                        文件 &nbsp;&nbsp;
+                        <span class="text-uppercase" data-bind="text:file_size"></span>
+                        <i class="iconfont icon-tag2"></i>
+                    </small>
+                    <a class="file-name" href="javascript:void(0);"
+                        data-bind="attr:{ title:file_name + ' '+file_size},text:file_name">debug.log
+                    </a>
+                    <div class="file-upload-progress layui-progress layui-progress-big" lay-showpercent="true"
+                        data-bind="attr:{'lay-filter':'progress_'+file_id}">
+                        <div class="layui-progress-bar layui-bg-blue" lay-percent="0%"
+                            data-bind="attr:{'lay-percent':percent+'%',id:'progress_bar_'+file_id}"></div>
+                    </div>
+                    <span class="file-action">
+                        <a class="file-cancel" href="javascript:;"
+                            data-bind="click:$parent.cancelUpload,if: upload_status==0,attr:{ title:'取消 '+file_name+' 上传',id:'file_cancel_btn_'+file_id}">取消</a>
+                        <a class="file-reupload" href="javascript:;"
+                            data-bind="click:$parent.reUpload,attr:{ title:'重新上传 '+file_name+'',id:'file_reupload_btn_'+file_id}"
+                            style="display:none">重新上传</a>
+                        <a class="file-done" href="javascript:;"
+                            data-bind="attr:{ title:'已完成 '+file_name+' 上传',id:'file_done_btn_'+file_id}"
+                            style="display:none">上传完成</a>
+                        <a class="file-cancel" href="javascript:;"
+                            data-bind="click:$parent.delUpload,attr:{ title:'删除已上传文件: '+file_name+' ?',id:'file_del_btn_'+file_id}"
+                            style="display:none">删除</a>
+                    </span>
+
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/knockout.js"></script>
+    <script src="./js/webuploader.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+    <script>document.write('<script src="./config/config.js?v=' + Math.random().toString().replace("0.", "") + '"><\/script>')</script>
+    <script>document.write('<script src="./js/video.js?v=' + Math.random().toString().replace("0.", "") + '"><\/script>')</script>
+    <!-- // 非layui环境下打开 -->
+    <!-- <script>document.write('<script src="./js/uploader.js?v=' + Math.random().toString().replace("0.", "") + '"><\/script>')</script> -->
+</body>
+<script>
+    video.init();
+    
+    layui.config({
+        base: './js/'
+    }).use(['uploader', 'element'], function () {// 非layui环境下注释
+        var $ = layui.jquery// 非layui环境下注释
+            , uploader = layui.uploader// 非layui环境下注释
+            , element = layui.element;// 非layui环境下注释
+
+
+        uploader.render({
+            id: '#test2'
+            , auto: false
+            , method: 'POST'
+            , server: 'http://127.0.0.1:20002/api/upload'
+            , pick: {
+                id: '#add_files_button',
+                label: "上传文件",
+                multiple: true,
+            }
+            , formData: {}
+            , queued: function (file) {
+                // console.log('queued', file)
+                // video.notice({}, file, $);
+                video.GB(function (id) {
+                    let devid = id || '';
+
+                    video.analyze(devid, function (res) {
+
+                        setTimeout(() => {
+                            video.notice(res.data, file, $);
+							video.playback(devid);
+                        }, 60000);
+                    });
+                }, $)
+            }
+            , before: function (file) {
+                // console.log('before', file)
+            }
+            , progress: function (file, percentage) {
+                console.log('progress', file, percentage)
+            }
+            , success: function (res) {
+                console.log('success', res)
+            }
+            , complete: function (res) {
+                console.log('complete', res)
+            }
+            , error: function (err) {
+                console.log('error', err)
+            }
+        });
+
+    })// 非layui环境下注释
+</script>
+
+</html>

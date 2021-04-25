@@ -1,0 +1,53 @@
+03/04/20 15:16:02 [R_T] [TRACE] DSP_RT_InitGlobal: Realtime global initialize.............................
+03/04/20 15:16:02 [OSTIME] [TRACE] OSTIME_TimeStart: Have create an pstTimerEntry thread for pstTimerEntry running! The thread ID 828, The handle of timer heap is 48431104
+03/04/20 15:16:02 [R_T] [TRACE] DSP_RT_InitGlobal: Success create audioplay object.
+03/04/20 15:16:02 [R_T] [TRACE] DSP_SetCallBackFunc: Set callback function 0F5D7CB0.
+03/04/20 15:16:02 [CHN] [TRACE] CreateDisTimer: Thread 8276 created Media Timer ID 1 in  Channel 128
+03/04/20 15:16:02 [CHN] [TRACE] Init: Created decoder channel 128 successfully,the timerInterval:33
+03/04/20 15:16:02 [R_T] [TRACE] DSP_InitRealTimeStream: Channel 128 initialized, stream type 4 render mode 1.
+03/04/20 15:16:02 [R_T] [TRACE] DSP_InitRealTimeStream: Thread 8276 created decoder handle 000004DC thead id 8836 in channel 128.
+03/04/20 15:16:02 [R_T] [TRACE] DSP_SetDisplayMode: ChannelID 128 set display mode 0.
+03/04/20 15:16:02 [R_T] [TRACE] DSP_SetDeinterlaceMode: Channel 128 Set deinterlace mode 2.
+03/04/20 15:16:02 [R_T] [TRACE] DSP_SetTopFieldDecOnly: Channel 128 Set field mode 0.
+03/04/20 15:16:02 [R_T] [TRACE] DecodeThreadFunc: Create Decoder thread 
+03/04/20 15:16:05 [R_T] [TRACE] DSP_StopRealTimeStream: Releasing channel 128 thread handle 000004DC.
+03/04/20 15:16:05 [CHN] [TRACE] Release: Release decoder channel 128 successfully 
+03/04/20 15:16:05 [R_T] [TRACE] DSP_StopRealTimeStream: Success to release decoder thread and making mute of channel 128.
+03/06/20 15:29:41 [R_T] [TRACE] DSP_RT_InitGlobal: Realtime global initialize.............................
+03/06/20 15:29:41 [OSTIME] [TRACE] OSTIME_TimeStart: Have create an pstTimerEntry thread for pstTimerEntry running! The thread ID 816, The handle of timer heap is 62193664
+03/06/20 15:29:41 [R_T] [TRACE] DSP_RT_InitGlobal: Success create audioplay object.
+03/06/20 15:29:41 [R_T] [TRACE] DSP_SetCallBackFunc: Set callback function 0F1C7CB0.
+03/06/20 15:29:41 [CHN] [TRACE] CreateDisTimer: Thread 17108 created Media Timer ID 1 in  Channel 128
+03/06/20 15:29:41 [CHN] [TRACE] Init: Created decoder channel 128 successfully,the timerInterval:33
+03/06/20 15:29:41 [R_T] [TRACE] DSP_InitRealTimeStream: Channel 128 initialized, stream type 4 render mode 1.
+03/06/20 15:29:41 [R_T] [TRACE] DSP_InitRealTimeStream: Thread 17108 created decoder handle 000004B8 thead id 14540 in channel 128.
+03/06/20 15:29:41 [R_T] [TRACE] DSP_SetDisplayMode: ChannelID 128 set display mode 0.
+03/06/20 15:29:41 [R_T] [TRACE] DSP_SetDeinterlaceMode: Channel 128 Set deinterlace mode 2.
+03/06/20 15:29:41 [R_T] [TRACE] DSP_SetTopFieldDecOnly: Channel 128 Set field mode 0.
+03/06/20 15:29:41 [R_T] [TRACE] DecodeThreadFunc: Create Decoder thread 
+03/06/20 15:30:29 [R_T] [TRACE] DSP_RT_InitGlobal: Realtime global initialize.............................
+03/06/20 15:30:29 [OSTIME] [TRACE] OSTIME_TimeStart: Have create an pstTimerEntry thread for pstTimerEntry running! The thread ID 812, The handle of timer heap is 56557568
+03/06/20 15:30:29 [R_T] [TRACE] DSP_RT_InitGlobal: Success create audioplay object.
+03/06/20 15:30:29 [R_T] [TRACE] DSP_SetCallBackFunc: Set callback function 0FC37CB0.
+03/06/20 15:30:29 [CHN] [TRACE] CreateDisTimer: Thread 17304 created Media Timer ID 1 in  Channel 128
+03/06/20 15:30:29 [CHN] [TRACE] Init: Created decoder channel 128 successfully,the timerInterval:33
+03/06/20 15:30:29 [R_T] [TRACE] DSP_InitRealTimeStream: Channel 128 initialized, stream type 4 render mode 1.
+03/06/20 15:30:29 [R_T] [TRACE] DSP_InitRealTimeStream: Thread 17304 created decoder handle 000004B8 thead id 17024 in channel 128.
+03/06/20 15:30:29 [R_T] [TRACE] DSP_SetDisplayMode: ChannelID 128 set display mode 0.
+03/06/20 15:30:29 [R_T] [TRACE] DSP_SetDeinterlaceMode: Channel 128 Set deinterlace mode 2.
+03/06/20 15:30:29 [R_T] [TRACE] DSP_SetTopFieldDecOnly: Channel 128 Set field mode 0.
+03/06/20 15:30:29 [R_T] [TRACE] DecodeThreadFunc: Create Decoder thread 
+03/06/20 15:30:32 [QUE] [ERROR] WriteQueue: BufItem[128] cannot be written
+03/06/20 15:32:21 [R_T] [TRACE] DSP_RT_InitGlobal: Realtime global initialize.............................
+03/06/20 15:32:21 [OSTIME] [TRACE] OSTIME_TimeStart: Have create an pstTimerEntry thread for pstTimerEntry running! The thread ID 836, The handle of timer heap is 49676288
+03/06/20 15:32:21 [R_T] [TRACE] DSP_RT_InitGlobal: Success create audioplay object.
+03/06/20 15:32:21 [R_T] [TRACE] DSP_SetCallBackFunc: Set callback function 0FC27CB0.
+03/06/20 15:32:21 [CHN] [TRACE] CreateDisTimer: Thread 16400 created Media Timer ID 1 in  Channel 128
+03/06/20 15:32:21 [CHN] [TRACE] Init: Created decoder channel 128 successfully,the timerInterval:33
+03/06/20 15:32:21 [R_T] [TRACE] DSP_InitRealTimeStream: Channel 128 initialized, stream type 4 render mode 1.
+03/06/20 15:32:21 [R_T] [TRACE] DSP_InitRealTimeStream: Thread 16400 created decoder handle 000004B8 thead id 13964 in channel 128.
+03/06/20 15:32:21 [R_T] [TRACE] DSP_SetDisplayMode: ChannelID 128 set display mode 0.
+03/06/20 15:32:21 [R_T] [TRACE] DSP_SetDeinterlaceMode: Channel 128 Set deinterlace mode 2.
+03/06/20 15:32:21 [R_T] [TRACE] DSP_SetTopFieldDecOnly: Channel 128 Set field mode 0.
+03/06/20 15:32:21 [R_T] [TRACE] DecodeThreadFunc: Create Decoder thread 
+03/06/20 15:32:31 [QUE] [ERROR] WriteQueue: BufItem[128] cannot be written
